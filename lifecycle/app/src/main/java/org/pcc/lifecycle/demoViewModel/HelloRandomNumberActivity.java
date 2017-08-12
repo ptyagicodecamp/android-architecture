@@ -1,9 +1,11 @@
-package org.pcc.lifecycle;
+package org.pcc.lifecycle.demoViewModel;
 
 import android.arch.lifecycle.LifecycleActivity;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import org.pcc.lifecycle.R;
 
 public class HelloRandomNumberActivity extends LifecycleActivity {
 

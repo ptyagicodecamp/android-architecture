@@ -1,4 +1,4 @@
-package org.pcc.lifecycle;
+package org.pcc.lifecycle.demoViewModel;
 
 import android.arch.lifecycle.ViewModel;
 import android.support.annotation.Nullable;

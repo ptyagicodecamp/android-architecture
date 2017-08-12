@@ -1,6 +1,18 @@
-## Managing App's Lifecycle using "Lifecycle Aware components"
+Title: Managing App's Lifecycle using "Lifecycle Aware components" (Part 1)
+Date: 2017-08-12 10:15PM
+Authors: ptyagi
+Category: Development
+Tags: android, android-architecture, architecture-components
+Summary: This post is first part of 3 parts series about recently introduced architecture components.
+This covers using ViewModel component to persist Activity configuration data across screen rotations.
 
-This sample demonstrate how an app's lifecycle can be managed using recently introduced 
+## Managing App's Lifecycle using "Lifecycle Aware components" (ViewModel) ##
+
+### Introduction ##
+This post is first part of 3 parts series about recently introduced architecture components.
+This covers using ViewModel component to persist Activity configuration data across screen rotations.
+
+This sample demonstrate how an app's lifecycle can be managed using recently introduced
 lifecycle aware components. Classes that can work with [Lifecyle](https://developer.android.com/reference/android/arch/lifecycle/Lifecycle.html)
 are known as lifecycle aware components.
 
@@ -13,16 +25,16 @@ Above is achieved using these libraries:
 * **[LiveData](https://developer.android.com/topic/libraries/architecture/livedata.html)**:
  LiveData is a data holder that keeps a value and allows it to be observed with in a specified lifecycle.
 
-* **[ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel.html)**: 
-ViewModel class helps to store and manage data related to UI. Keeping UI related data in a separate 
+* **[ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel.html)**:
+ViewModel class helps to store and manage data related to UI. Keeping UI related data in a separate
 ViewModel class helps to survive activity configuration data across screen rotation. Basically, ViewModel
 class prepares and provide data for/to UI.
 
-* **[LifecycleOwner](https://developer.android.com/reference/android/arch/lifecycle/LifecycleOwner.html)**: 
+* **[LifecycleOwner](https://developer.android.com/reference/android/arch/lifecycle/LifecycleOwner.html)**:
 It's a class that has an Android Life cycle. Your Fragment/Activity may want to extend on of its
 subclasses like LifecycleFragment/LifecycleActivity to incorporate automatic handling of Lifecycle events.
 
-* **[LifecycleObserver](https://developer.android.com/reference/android/arch/lifecycle/LifecycleObserver.html)**: 
+* **[LifecycleObserver](https://developer.android.com/reference/android/arch/lifecycle/LifecycleObserver.html)**:
 Marks a class as a LifecycleObserver.
 
 ***Useful links:***
@@ -42,9 +54,9 @@ dependencies {
 
 ### Using ViewModel to retain data across lifecylce of Activity/Fragment ###
 
-I've a sample app with a simple `TextView`. This textView displays a text 
-'Hello Random Number: <generated random number>'. This number is generated and set in 
-`onCreate()` method. 
+I've a sample app with a simple `TextView`. This textView displays a text
+'Hello Random Number: <generated random number>'. This number is generated and set in
+`onCreate()` method.
 
 ### Before (Regular implementation) ###
 Every time screen is rotated, `onCreate()` method is called and generates
@@ -65,10 +77,10 @@ public class HelloRandomNumberActivity extends AppCompatActivity {
 }
 ```
 
-Feel free to try and run this code in action. You'll see every time you rotate your device's screen, 
+Feel free to try and run this code in action. You'll see every time you rotate your device's screen,
 a new random number is generated and displayed.
 
-TODO: Add video here
+[Checkout this video to see how screen rotation will re-generate new number again](https://youtu.be/gbDnwYyHh_I)
 
 ### After (Using ViewModel to retain Activity config data)
 
@@ -129,9 +141,13 @@ are release, then it'll be available in Support library and so in 'AppCompatActi
 
 Try the code now ! There's no change in number every time screen is rotated.
 
-TODO: //video here
+[Checkout this video to see how introducing ViewModel helps retaining the
+Activity configuration data](https://youtu.be/2Mh7vYUDK3w)
 
+That's all you have to know to get started with using ViewModel architecture components in order to write better and maintainable android apps !
 
+Checkout the source code at [Github](https://github.com/ptyagicodecamp/android-architecture/tree/master/lifecycle)
 
+I'll cover LiveData architecture component in next post.
 
-
+Happy exploring !
